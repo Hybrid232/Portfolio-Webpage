@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Emmitt's Portfolio</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+  <body>
+    
+    <div class="background"></div>
+    <div class="overlay"></div>
+    
+    <div class="content">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contactMe.html">Contact</a></li>
+      </ul>
+      <div class="portfolio-container">
+    <h1>My Projects</h1>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab-button active" data-tab="class">Class Projects</button>
+      <button class="tab-button" data-tab="personal">Personal Projects</button>
+      <button class="tab-button" data-tab="group">Group Projects</button>
+    </div>
+
+    <!-- Tab Content -->
+    <div class="tab-content">
+
+      <!-- Class Projects -->
+      <div class="tab-panel active" id="class">
+        <div class="project-card">
+          <img src="images/class1.png" alt="Class Project 1">
+          <div class="project-info">
+            <p>Project 1 description goes here. This is a short two-sentence overview.</p>
+            <a href="https://github.com/username/class-project-1" target="_blank">
+              <img src="images/Github.png" alt="GitHub Link" class="github-icon">
+            </a>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="images/class2.png" alt="Class Project 2">
+          <div class="project-info">
+            <p>Project 2 description goes here. Another quick overview of the project.</p>
+            <a href="https://github.com/username/class-project-1" target="_blank">
+              <img src="images/Github.png" alt="GitHub Link" class="github-icon">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Personal Projects -->
+      <div class="tab-panel" id="personal">
+        <div class="project-card">
+          <img src="images/SNGame.png" alt="Personal Project 1">
+          <div class="project-info">
+            <h2>The Subway Nightmare</h2>
+            <p>This personal project is a fun experiment with AI. Short two-sentence description.</p>
+            <a href="https://glass-top-hat-games.itch.io/the-subway-nightmare" target="_blank">
+              <img src="images/itchio.png" alt="Itch.io Link" class="github-icon">
+            </a>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="images/CRDGame.png" alt="Group Project 1">
+          <div class="project-info">
+            <h2>Cube Runner Deluxe</h2>
+            <p>This group project was developed collaboratively in class. Brief two-sentence description.</p>
+            <a href="https://glass-top-hat-games.itch.io/cuberunner-deluxe" target="_blank">
+              <img src="images/itchio.png" alt="Itch.io Link" class="github-icon">
+            </a>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <!-- Group Projects -->
+      <div class="tab-panel" id="group">
+        <div class="project-card">
+          <img src="images/Capture The Flaginator Game.png" alt="Group Project 1">
+          <div class="project-info">
+            <h2>Capture the Flaginator</h2>
+            <p>This group project was developed collaboratively in class. Brief two-sentence description.</p>
+            <a href="https://github.com/username/group-project-1" target="_blank">
+              <img src="images/Github.png" alt="GitHub Link" class="github-icon">
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="project.js"></script>
+      
+
+    </div>
+
+    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='https://www.jqueryscript.net/demo/jQuery-Plugin-To-Create-Interactive-Polygon-Background-Geometryangle/geometryangle.js'></script><script  src="./script.js"></script>
+
+  </body>
+  
+</html>
