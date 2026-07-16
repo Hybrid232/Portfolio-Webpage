@@ -161,14 +161,6 @@ projects = [
 ]
 
 
-// Turns a section name into a safe id/data-tab value, e.g. "Class Project" -> "class-project"
-function slugify(str) {
-  return str.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/(^-+|-+$)/g, '');
-}
- 
-// Unique section names, in the order they first appear in the projects array.
-// Adding a brand new section to a project object is enough to get it its own
-// tab/filter here - nothing else needs to change.
 function getSections() {
   const sections = [];
   projects.forEach(project => {
@@ -176,17 +168,19 @@ function getSections() {
   });
   return sections;
 }
- 
-// ---- Templates (build HTML strings, same pattern as tagTemplate/difficultyTemplate/hikesTemplate) ----
- 
+
+const sectionPanels = new Map();
+
+// Templates 
+
 function tabButtonTemplate(section, index) {
   const activeClass = index === 0 ? " active" : "";
-  return `<button type="button" class="tab-button${activeClass}" data-tab="${slugify(section)}">${section}</button>`;
+  return `<button type="button" class="tab-button${activeClass}" data-section="${section}">${section}</button>`;
 }
- 
-function tabPanelTemplate(section, index) {
+
+function tabPanelTemplate(index) {
   const activeClass = index === 0 ? " active" : "";
-  return `<div class="tab-panel${activeClass}" id="${slugify(section)}"></div>`;
+  return `<div class="tab-panel${activeClass}"></div>`;
 }
  
 function pointsTemplate(points) {
@@ -227,18 +221,24 @@ function projectCardTemplate(project, index) {
 function buildPortfolioShell() {
   const container = document.querySelector('.portfolio-container');
   if (!container) return;
- 
+
   const sections = getSections();
   const tabsHtml = sections.map((section, i) => tabButtonTemplate(section, i)).join('');
-  const panelsHtml = sections.map((section, i) => tabPanelTemplate(section, i)).join('');
- 
+  const panelsHtml = sections.map((section, i) => tabPanelTemplate(i)).join('');
+
   container.innerHTML = `<h1>My Projects</h1>
   <div class="tabs">${tabsHtml}</div>
   <div class="tab-content">${panelsHtml}</div>`;
+
+  // Panels were just created in DOM order matching `sections` - pair them up
+  // once here so nothing downstream needs to regenerate an id to find one.
+  sectionPanels.clear();
+  const panelEls = container.querySelectorAll('.tab-panel');
+  sections.forEach((section, i) => sectionPanels.set(section, panelEls[i]));
 }
- 
+
 function renderProjectCard(project, index) {
-  const panel = document.getElementById(slugify(project.section));
+  const panel = sectionPanels.get(project.section);
   if (!panel) return;
   panel.innerHTML += projectCardTemplate(project, index);
 }
@@ -267,17 +267,16 @@ function initTabs() {
       tabButtons.forEach(btn => btn.classList.remove('active'));
       button.classList.add('active');
  
-      const target = button.getAttribute('data-tab');
- 
+      const section = button.getAttribute('data-section');
+
       tabPanels.forEach(panel => panel.classList.remove('active'));
-      const targetPanel = document.getElementById(target);
+      const targetPanel = sectionPanels.get(section);
       if (targetPanel) targetPanel.classList.add('active');
     });
   });
 }
  
-// ---- Image modal ----
- 
+// Image modal
 function modalTemplate() {
   return `<button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
   <button class="modal-nav modal-prev" id="modal-prev" aria-label="Previous image">&#10094;</button>
@@ -354,8 +353,7 @@ function initModal() {
   });
 }
  
-// ---- Mobile hamburger menu (nav is shared markup, but this is where it's wired up for this page) ----
-
+// Mobile hamburger menu
 function initHamburgerMenu() {
   const hamburgerBtn = document.getElementById('hamburger-btn');
   const navLinks = document.getElementById('nav-links');
@@ -392,10 +390,7 @@ function initHamburgerMenu() {
   });
 }
 
-// ---- Init ----
-// The tabs/cards/modal are specific to the projects page - only build them
-// if this page actually has a .portfolio-container. The hamburger menu is
-// shared nav, so it always initializes, on every page that loads this file.
+// Init
 if (document.querySelector('.portfolio-container')) {
   buildPortfolioShell();
   renderAllProjects();

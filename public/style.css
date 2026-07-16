@@ -286,7 +286,7 @@
   background: rgba(120, 255, 200, 0.15);
 }
 
-/* ---- About Me section ---- */
+
 .about-me {
   max-width: 1100px;
   margin: 40px auto;
@@ -360,11 +360,27 @@
 
 
 
+html {
+  height: 100%;
+}
+
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
   font-family: "Nova Square", sans-serif;
   background-color: #f5f5f5;
   margin: 0;
   padding: 0;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+.site-footer {
+  flex-shrink: 0;
 }
 
 .portfolio-container {
@@ -394,7 +410,7 @@ h1 {
   width: 100%;
   padding: 12px 16px;
 
-  /* Glassmorphism */
+
   background: rgba(33, 2, 119, 0.35);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -550,14 +566,14 @@ h1 {
   box-shadow: 0 0 30px rgba(88, 101, 242, 0.15);
 }
 
-/* Info column */
+
 .project-info {
    display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
 
-/* Title aligned top-left of image */
+
 .project-info h2 {
   margin: 0 0 8px 0;
   font-size: 1.4rem;
@@ -598,7 +614,7 @@ h1 {
   box-shadow: 0 0 12px rgba(120, 255, 200, 0.4);
 }
 
-/* Paragraph text */
+
 .project-info p {
   margin: 0;
   font-size: 1rem;
@@ -662,7 +678,7 @@ h1 {
 .contact-hero {
   display: flex;
   flex-direction: column;
-  align-items: center; /* center everything horizontally */
+  align-items: center; 
   text-align: center;
 
   max-width: 800px;
@@ -675,7 +691,7 @@ h1 {
 }
 
 .contact-btn-wrapper {
-  margin-bottom: 20px; /* spacing between button and social icons */
+  margin-bottom: 20px; 
 }
 
 .contact-subtitle{
@@ -765,7 +781,7 @@ h1 {
   filter: drop-shadow(0 0 15px rgba(120, 255, 200, 0.8));
 }
 
-/* Optional: subtle pulse animation for the footer glow */
+
 @keyframes footerGlow {
   0%, 100% {
     box-shadow: 0 -2px 15px rgba(0, 255, 180, 0.3);
@@ -779,7 +795,7 @@ h1 {
   animation: footerGlow 3s ease-in-out infinite;
 }
 
-/* ---- Project thumbnail (clickable to open modal) ---- */
+/* ---- Project thumbnail---- */
 .project-thumbnail {
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -880,11 +896,11 @@ h1 {
   letter-spacing: 0.5px;
 }
 
-/* ============================================
-   Desktop and up (600px+) - restores the
-   original desktop layout on top of the
-   mobile-first base styles above.
-   ============================================ */
+
+
+
+
+
 @media (min-width: 700px) {
 
   .nav {
