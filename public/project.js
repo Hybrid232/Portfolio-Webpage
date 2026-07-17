@@ -205,7 +205,7 @@ function linksTemplate(links, linkImgs) {
  
 function projectCardTemplate(project, index) {
   return `<div class="project-card">
-  <img src="${project.imageModal[0]}" alt="${project.title}" class="project-thumbnail" data-project-index="${index}">
+  <img src="${project.imageModal[0]}" alt="${project.title} fetchpoint="high"" class="project-thumbnail" data-project-index="${index}">
   <div class="project-info">
     <h2>${project.title}</h2>
     ${tagsTemplate(project.tags)}
