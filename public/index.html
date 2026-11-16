@@ -7,26 +7,25 @@
   <!-- Open Graph (Facebook, LinkedIn, etc.) -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Stevenson Portfolio">
-  <meta property="og:description" content="My main home page for my project portfolio.">
-  <meta property="og:url" content="https://stevenson-portfolio.web.app/index.html">
+  <meta property="og:description" content="Emmitt Stevenson's portfolio: about me, projects, and contact info.">
+  <meta property="og:url" content="https://stevenson-portfolio.web.app/">
 
   <!-- X Card -->
-  <meta name="twitter:card" content="X Page">
-  <meta name="twitter:title" content="Steveson Portfolio">
-  <meta name="twitter:description" content="My main home page for my project portfolio.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Stevenson Portfolio">
+  <meta name="twitter:description" content="Emmitt Stevenson's portfolio: about me, projects, and contact info.">
 
-  <title>Main Page</title>
+  <title>Emmitt Stevenson | Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nova+Square&display=swap" rel="stylesheet">
 
   <link rel="icon" href="./images/icons/stevenson-portfolio.ico">
-
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
   <link rel="stylesheet" href="./style.css">
 
-  <script defer src="./project.js"></script>
+  <script type="module" src="./project.js"></script>
   <script defer src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
   <script
     defer src='https://www.jqueryscript.net/demo/jQuery-Plugin-To-Create-Interactive-Polygon-Background-Geometryangle/geometryangle.js'></script>
@@ -41,28 +40,28 @@
   <div class="content">
 
     <!-- NAV -->
-
     <nav class="nav">
+      <a href="#home" class="nav-brand">ES</a>
       <button class="hamburger" id="hamburger-btn" aria-label="Open menu" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
       </button>
       <div class="nav-links" id="nav-links">
-        <a href="index.html" class="active">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="contact-me.html">Contact</a>
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
       </div>
     </nav>
     <div class="nav-overlay" id="nav-overlay"></div>
 
-
     <!-- HERO SECTION -->
-    <section class="hero">
+    <section class="hero page-section" id="home">
 
       <div class="fade-rise delay-1">
         <div class="hero-image">
-          <img src="images/icons/Personal Photo.jpg" class="profile-pic" alt="Personal Photo"  fetchpriority="high">
+          <img src="images/icons/Personal Photo.jpg" class="profile-pic" alt="Emmitt Stevenson" fetchpriority="high">
         </div>
       </div>
 
@@ -90,21 +89,23 @@
 
         <div class="fade-rise delay-6">
           <div class="hero-actions">
-            <a href="projects.html" class="projects-btn">View Projects</a>
-            <a href="contact-me.html" class="secondary-btn">Contact Me</a>
+            <a href="#projects" class="projects-btn">View Projects</a>
+            <a href="#contact" class="secondary-btn">Contact Me</a>
           </div>
         </div>
+      </div>
 
-
+      <a href="#about" class="scroll-cue fade-rise delay-6" aria-label="Scroll to About Me">
+        <span></span>
+      </a>
     </section>
 
     <!-- ABOUT ME SECTION -->
-    <section class="about-me">
-      <h2 class="about-me-title fade-rise delay-1">About Me</h2>
+    <section class="about-me page-section" id="about">
+      <h2 class="section-title reveal">About Me</h2>
       <div class="about-me-content">
-        <div class="about-me-text fade-rise delay-2">
-          Aye, Shwmae! And a good day to you!
-          </p>
+        <div class="about-me-text glass-panel reveal">
+          <p>Aye, Shwmae! And a good day to you!</p>
 
           <p>
             I'm <strong>Emmitt Stevenson</strong>, a Software Engineering student at
@@ -122,8 +123,8 @@
 
           <p>
             Outside of programming, you'll usually find me creating or playing video
-            games, practicing fencing, or performing in theater. I also spend pleanty of time with
-            my lovely wife Lucy! She as well has taugh me so much. These hobbies have
+            games, practicing fencing, or performing in theater. I also spend plenty of time with
+            my lovely wife Lucy! She has taught me so much as well. These hobbies have
             taught me creativity, discipline, teamwork, and problem-solving—qualities
             I strive to bring into every project I work on.
           </p>
@@ -132,43 +133,55 @@
             Thanks for stopping by my portfolio, and I hope you have an amazing day!
           </p>
         </div>
-        <div class="about-me-image fade-rise delay-3">
-          <!-- TODO: replace src with an actual family photo, e.g. ./images/icons/family-photo.jpg -->
-          <img src="./images/icons/WeddingPic.jpg" alt="Family photo">
+        <div class="about-me-image reveal">
+          <img src="./images/icons/WeddingPic.jpg" alt="Emmitt and Lucy Stevenson" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION (cards are rendered by project.js) -->
+    <section class="portfolio-container page-section" id="projects"></section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-hero page-section" id="contact">
+      <h2 class="section-title reveal">Contact Me</h2>
+      <div class="glass-panel contact-card reveal">
+        <p class="contact-subtitle">
+          I would love to connect! Reach out via email or check my socials.
+        </p>
+
+        <div class="contact-btn-wrapper">
+          <a href="mailto:emmitt.s.stevenson@gmail.com" class="projects-btn">Send Me an Email</a>
+        </div>
+
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/emmitt-stevenson-970a9934b/" target="_blank" rel="noopener">
+            <img src="images/icons/Linkedin.png" alt="LinkedIn" loading="lazy">
+          </a>
+          <a href="https://github.com/Hybrid232" target="_blank" rel="noopener">
+            <img src="images/icons/Github.png" alt="GitHub" loading="lazy">
+          </a>
+          <a href="https://www.upwork.com/freelancers/~019108b5513ee887f1" target="_blank" rel="noopener">
+            <img src="images/icons/upwork.png" alt="Upwork" loading="lazy">
+          </a>
+          <a href="https://byui.joinhandshake.com/profiles/emmitt-stevenson" target="_blank" rel="noopener">
+            <img src="images/icons/handshake.png" alt="Handshake" loading="lazy">
+          </a>
         </div>
       </div>
     </section>
   </div>
 
-
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>Emmitt Stevenson</p>
+      <p>Email: <a href="mailto:emmitt.s.stevenson@gmail.com">emmitt.s.stevenson@gmail.com</a></p>
+      <p>&copy; 2026 Emmitt Stevenson. All rights reserved.</p>
+      <p>Animated background found at <a href="https://codepen.io/stlwebdev/pen/PPdBYL"
+          target="_blank" rel="noopener">https://codepen.io/stlwebdev/pen/PPdBYL</a></p>
+    </div>
+  </footer>
 
 </body>
-
-<footer class="site-footer">
-  <div class="footer-content">
-    <p>Emmitt Stevenson</p>
-    <p>Email: <a href="mailto:emmitt.s.stevenson@gmail.com">emmitt.s.stevenson@gmail.com</a></p>
-    <p>
-      <a href="https://github.com/Hybrid232" target="_blank">
-        <img src="images/icons/Github.png" class="footer-icon" alt="GitHub">
-      </a>
-
-      <a href="https://www.linkedin.com/in/emmitt-stevenson-970a9934b/" target="_blank">
-        <img src="images/icons/Linkedin.png" class="footer-icon" alt="LinkedIn">
-      </a>
-
-      <a href="https://www.upwork.com/freelancers/~019108b5513ee887f1" target="_blank">
-        <img src="images/icons/upwork.png" class="footer-icon" alt="Upwork">
-      </a>
-
-      <a href="https://byui.joinhandshake.com/profiles/emmitt-stevenson" target="_blank">
-        <img src="images/icons/handshake.png" class="footer-icon" alt="Handshake">
-      </a>
-    </p>
-    <p>&copy; 2026 Emmitt Stevenson. All rights reserved.</p>
-    <p>Animated backgorund found at <a href="https://codepen.io/stlwebdev/pen/PPdBYL"
-        target="_blank?">https://codepen.io/stlwebdev/pen/PPdBYL</a></p>
-  </div>
-</footer>
 
 </html>
